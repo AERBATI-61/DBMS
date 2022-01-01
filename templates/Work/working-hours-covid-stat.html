@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <h5 class="text-uppercase mb-0 mt-0 page-title">Exam list</h5>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <ul class="breadcrumb float-right p-0 mb-0">
+                            <li class="breadcrumb-item"><a href="indeX-2.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Exam</a></li>
+                            <li class="breadcrumb-item"><span> Exam list</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+{#            <div class="row">#}
+{#                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">#}
+{#                    <div class="dash-widget dash-widget5">#}
+{#                        <div class="dash-widget-info text-right">#}
+{#                            <h6>Belirli Sehirde Elemanlar arasinda en yaygin 3 Hastalik</h6>#}
+{##}
+{#                            <h5>{{ selected_d }}</h5>#}
+{##}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+
+
+            <div class="content-page">
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <div class="table-responsive">
+                            <table class="table custom-table">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Hours Per Week</th>
+                                    <th>Num of Employees</th>
+
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                {% for employee in emp_groups %}
+                                    <tr>
+                                        <td>
+                                            <h2><a href="#">{{ employee.hours_per_week }}</a></h2>
+                                        </td>
+                                        <td>
+                                            <h2><a href="#">{{ employee.num_of_emps }}</a></h2>
+                                        </td>
+
+                                    </tr>
+
+                                {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

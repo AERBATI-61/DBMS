@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <div class="main-wrapper">
+        <div class="page-wrapper">
+
+
+            <div class="content container-fluid">
+
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-12 col-12 d-flex">
+                        <div class="card flex-fill">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="page-title">
+                                            Covid Geçiren Personeller
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table custom-table">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>Covid ID</th>
+                                                    <th>Ad</th>
+                                                    <th>Soyad</th>
+                                                    <th>Başlangıç Tarihi</th>
+                                                    <th>Bitiş Tarihi</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for employee in covid_emps %}
+                                                    <tr>
+                                                        <td>{{ employee.id }}</td>
+                                                        <td>{{ employee.emp.first_name }}</td>
+                                                        <td>{{ employee.emp.last_name }}</td>
+                                                        <td>{{ employee.p_date|date:"d/m/Y" }}</td>
+                                                        <td>{{ employee.n_date|date:"d/m/Y" }}</td>
+                                                    </tr>
+                                                {% endfor %}
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex">
+                        <div class="card flex-fill">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="page-title">
+                                            en uzun süre covid geçiren personel
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table custom-table">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>TC</th>
+                                                    <th>First_Name</th>
+                                                    <th>Last_Name</th>
+                                                    <th>Covid Suresi</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for employee in emps %}
+                                                    <tr>
+                                                        <td>{{ employee.tc }}</td>
+                                                        <td>{{ employee.first_name }}</td>
+                                                        <td>{{ employee.last_name }}</td>
+                                                        <td>{{ employee.covid_d|floatformat }} Gün</td>
+                                                    </tr>
+                                                {% endfor %}
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex">
+                        <div class="card flex-fill">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="page-title">
+                                            Hastalık Ve Reçete Bilgisi
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table custom-table">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>Disease Name</th>
+                                                    <th>Prescription Id</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {#                                                {% for dis_pre in dis_pres %}#}
+                                                {#                                                    <tr>#}
+                                                {#                                                        <td>{{ dis_pre.dname }}</td>#}
+                                                {#                                                        <td>{{ dis_pre.prescription_id }}</td>#}
+                                                {#                                                    </tr>#}
+                                                {#                                                {% endfor %}#}
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+
+<body>
+
+
+</body>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <div class="main-wrapper">
+        <div class="page-wrapper">
+
+
+            <div class="content container-fluid">
+
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-12 d-flex">
+                        <div class="card flex-fill">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="page-title">
+                                            Most Common Three Diseases
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table custom-table">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>Dname</th>
+                                                    <th>D_Count</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for disease in selected_d %}
+                                                    <tr>
+                                                        <td>{{ disease.dname }}</td>
+                                                        <td>{{ disease.d_count }}</td>
+                                                        </td>
+                                                    </tr>
+
+                                                {% endfor %}
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-flex">
+                        <div class="card flex-fill">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="page-title">
+                                            Most Common Disease Employee
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table custom-table">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>TC</th>
+                                                    <th>First_Name</th>
+                                                    <th>Last_Name</th>
+                                                    <th>Dname</th>
+
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for employee in employees %}
+                                                    <tr>
+                                                        <td>{{ employee.tc }}</td>
+                                                        <td>{{ employee.first_name }}</td>
+                                                        <td>{{ employee.last_name }}</td>
+                                                        <td>{{ employee.dname }}</td>
+
+                                                    </tr>
+                                                {% endfor %}
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+
+<body>
+
+
+</body>
+
+
+
+
+
+
+
+
+

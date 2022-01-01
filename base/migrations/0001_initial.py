@@ -40,7 +40,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('ilaclar', models.TextField()),
-                ('hangi_asi', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='company.asi')),
+                ('hangi_asi', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='base.asi')),
             ],
         ),
         migrations.CreateModel(
@@ -49,7 +49,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('hastalik_ismi', models.CharField(blank=True, max_length=128, null=True)),
                 ('baslangic_tarih', models.DateTimeField(blank=True, help_text='if it happened', null=True)),
-                ('belirtiler', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='company.belirtiler')),
+                ('belirtiler', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='base.belirtiler')),
             ],
         ),
         migrations.CreateModel(
@@ -66,7 +66,7 @@ class Migration(migrations.Migration):
                 ('egitimler', models.CharField(blank=True, choices=[('lisans', 'lisans'), ('yuksek_lisans', 'yuksek_lisans'), ('doktora', 'doktora')], max_length=128, null=True)),
                 ('subject', models.CharField(max_length=256)),
                 ('description', models.TextField(blank=True, null=True)),
-                ('hobiler', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='company.hobiler')),
+                ('hobiler', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='base.hobiler')),
             ],
         ),
         migrations.CreateModel(
@@ -77,9 +77,9 @@ class Migration(migrations.Migration):
                 ('bitis_tarih', models.DateTimeField(blank=True, help_text='if it happened', null=True)),
                 ('asi_durumu', models.BooleanField(default=False)),
                 ('kronik_mi', models.BooleanField(default=False)),
-                ('belirtiler', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='company.belirtiler')),
-                ('hangi_asi', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='company.asi')),
-                ('temasli_kisi', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='company.employee')),
+                ('belirtiler', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='base.belirtiler')),
+                ('hangi_asi', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='base.asi')),
+                ('temasli_kisi', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='base.employee')),
             ],
         ),
     ]

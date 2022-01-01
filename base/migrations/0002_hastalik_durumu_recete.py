@@ -7,13 +7,13 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('company', '0001_initial'),
+        ('base', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='hastalik_durumu',
             name='recete',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='company.recete'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='base.recete'),
         ),
     ]

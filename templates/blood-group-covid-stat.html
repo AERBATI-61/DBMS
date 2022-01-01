@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+
+
+            <div class="content-page">
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <div class="table-responsive">
+                            <table class="table custom-table">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Kan Grubu</th>
+                                    <th>Covid Görülme Sıklığı</th>
+{#                                    <th>Dcount</th>#}
+                                    <th class="text-right"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                {% for emp_group in emp_groups %}
+                                    <tr>
+                                        <td>
+                                            <h2><a href="#">{{ emp_group.blood_group }}</a></h2>
+                                        </td>
+                                        <td>
+                                            <h2><a href="#">{{ emp_group.covid_freq }}</a></h2>
+                                        </td>
+{#                                        <td>#}
+{#                                            <h2><a href="#">{{ emp_group.d_count }}</a></h2>#}
+{#                                        </td>#}
+                                    </tr>
+
+                                {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

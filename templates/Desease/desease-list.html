@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <h5 class="mb-0 mt-0 page-title">Hastalık listesi</h5>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <ul class="breadcrumb float-right p-0 mb-0">
+                            <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="fas fa-home"></i> Home</a>
+                            </li>
+                            <li class="breadcrumb-item"><span>Hastalık</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-12">
+                </div>
+                <div class="col-sm-8 col-12 text-right add-btn-col">
+                    <a href="{% url 'disease-create' %}" class="btn btn-primary float-right btn-rounded"><i
+                            class="fas fa-plus"></i>
+                        Hastalık Ekle</a>
+                </div>
+            </div>
+            <div class="content-page">
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <div class="table-responsive">
+                            <table class="table custom-table">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>Çalışanlar</th>
+                                    <th>Hastalık</th>
+                                    <th>Reçete</th>
+                                    <th class="text-right"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for desease in diseases %}
+                                    <tr>
+                                        <td>
+                                            <h2><a href="{% url 'index' %}">{{ desease.emp }}</a></h2>
+                                        </td>
+                                        <td>{{ desease.dname }}</td>
+                                        <td>{{ desease.p }}</td>
+                                        <td class="text-right">
+                                            <a href="{% url 'desease-update' desease.dcode %}">
+                                                <i class="btn btn-success">Update</i>
+                                            </a>
+
+                                            <a href="{% url 'disease-delete' desease.dcode %}">
+                                                <i class="btn btn-danger">Delete</i>
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

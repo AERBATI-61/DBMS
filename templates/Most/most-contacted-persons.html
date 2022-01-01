@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="page-wrapper">
+        <div class="content container-fluid">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <h5 class="text-uppercase mb-0 mt-0 page-title">Exam list</h5>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                        <ul class="breadcrumb float-right p-0 mb-0">
+                            <li class="breadcrumb-item"><a href="indeX-2.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Exam</a></li>
+                            <li class="breadcrumb-item"><span> Exam list</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="content-page">
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <div class="table-responsive">
+                            <table class="table custom-table">
+                                <thead class="thead-light">
+                                <tr>
+                                    <th>TC</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Contact Count</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                {% for emp in emps %}
+                                    <tr>
+                                        <td>
+                                            <h2><a href="#">{{ emp.tc }}</a></h2>
+                                        </td>
+                                        <td>
+                                            <h2><a href="#">{{ emp.first_name }}</a></h2>
+                                        </td>
+                                        <td>
+                                            <h2><a href="#">{{ emp.last_name }}</a></h2>
+                                        </td>
+                                        <td>
+                                            <h2><a href="#">{{ emp.contact_count }}</a></h2>
+                                        </td>
+                                    </tr>
+
+                                {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}

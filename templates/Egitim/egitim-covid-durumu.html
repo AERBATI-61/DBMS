@@ -1,0 +1,271 @@
+{#{% extends 'base.html' %}#}
+{#{% load static %}#}
+{#{% block content %}#}
+{##}
+{#    <div class="page-wrapper">#}
+{#        <div class="content container-fluid">#}
+{#            <div class="page-header">#}
+{#                <div class="row">#}
+{#                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">#}
+{#                        <h5 class="mb-0 mt-0 page-title">Covidli Çalışanların Eğitim Durumu </h5>#}
+{#                    </div>#}
+{#                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">#}
+{#                        <ul class="breadcrumb float-right p-0 mb-0">#}
+{#                            <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="fas fa-home"></i> Ana#}
+{#                                Sayfa</a></li>#}
+{#                            <li class="breadcrumb-item"><span>Covidli Çalışanların Eğitim Durumu</span></li>#}
+{#                        </ul>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <div class="content-page">#}
+{##}
+{#                <div class="row">#}
+{#                    <div class="col-md-12 mb-3">#}
+{#                        <div class="table-responsive">#}
+{#                            <table class="table custom-table">#}
+{#                                <thead class="thead-light">#}
+{#                                <tr>#}
+{#                                    <th>Level Of Education</th>#}
+{#                                    <th>Count</th>#}
+{#                                    <th>Yüzde</th>#}
+{#                                    <th class="text-right"></th>#}
+{#                                </tr>#}
+{#                                </thead>#}
+{#                                <tbody>#}
+{##}
+{#                                {% for level in levels %}#}
+{##}
+{##}
+{##}
+{#                                    <tr>#}
+{##}
+{#                                        <td>#}
+{#                                            {% if level.level_of_education == "doctorate" %}#}
+{#                                                <h2><a href="#">Doktora</a></h2>#}
+{#                                                <a href="#">{{ doctorate_p }}</a></h2>#}
+{#                                            {% elif level.level_of_education == "masters" %}#}
+{#                                                <h2><a href="#">Master</a></h2>#}
+{#                                            {% else %}#}
+{#                                                <h2><a href="#">Undergrate</a></h2>#}
+{#                                            {% endif %}#}
+{##}
+{##}
+{#                                        </td>#}
+{##}
+{#                                        <td>#}
+{#                                            {{ total }}#}
+{#                                        </td>#}
+{#                                        <td>#}
+{#                                            <h2><a href="#">{{ masters_p }}</a></h2>#}
+{#                                            <h2><a href="#">{{ undergra_p }}</a></h2></td>#}
+{##}
+{#                                    </tr>#}
+{#                                {% endfor %}#}
+{##}
+{##}
+{#                                </tbody>#}
+{#                            </table>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#        </div>#}
+{#    </div>#}
+{##}
+{##}
+{#{% endblock %}#}
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+    <div class="main-wrapper">
+        <div class="page-wrapper">
+            <div class="content container-fluid">
+
+                <div class="page-header">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <h5 class="mb-0 mt-0 page-title">Covidli Çalışanların Eğitim Durumu </h5>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                            <ul class="breadcrumb float-right p-0 mb-0">
+                                <li class="breadcrumb-item"><a href="{% url 'index' %}"><i class="fas fa-home"></i> Ana
+                                    Sayfa</a></li>
+                                <li class="breadcrumb-item"><span>Covidli Çalışanların Eğitim Durumu</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="dash-widget dash-widget5">
+                        <div class="dash-widget-info text-right">
+                            <h3>Toplam Covidli Çalışan Sayısı:  <span style="color: blue; margin-left: 7px">{{ total }}</span></h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-12 d-flex">
+                        <div class="card flex-fill">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="page-title">
+                                            <th>Lisans</th>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table custom-table">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>Toplam Sayı</th>
+                                                    <th>Yüzde</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                <tr>
+                                                    <td>{{ undergra_cnt }}</td>
+                                                    <td>{{ undergra_p }}</td>
+                                                    </td>
+                                                </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex">
+                        <div class="card flex-fill">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="page-title">
+                                            Yüksek Lisans
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table custom-table">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>Toplam Sayı</th>
+                                                    <th>Yüzde</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>{{ masters_cnt }}</td>
+                                                    <td>{{ masters_p }}</td>
+                                                    </td>
+                                                </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-flex">
+                        <div class="card flex-fill">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <div class="page-title">
+                                            Doktora
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table custom-table">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>Toplam Sayı</th>
+                                                    <th>Yüzde</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>{{ doctorate_cnt }}</td>
+                                                    <td>{{ doctorate_p }}</td>
+                                                    </td>
+                                                </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+
+<body>
+
+
+</body>
+
+
+
+
+
+
+
+
+
