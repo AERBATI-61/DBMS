@@ -378,10 +378,8 @@ def biontech_sinovac_comp(request):
     context = {
         'biontech_rate': biontech_rate,
         'sinovac_rate': sinovac_rate
-        # 'biontech': biontech,
-        # 'sinovac': sinovac
     }
-    return render(request, 'biontech-chsinovac-covid-emp.html', context)
+    return render(request, 'biontech-sinovac-covid-emp.html', context)
 
 
 def weekends_workers_covid_report(request):
